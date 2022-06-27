@@ -1,12 +1,9 @@
 version: '3'
 services:
-  react-app:
+  web-server:
+    container_name: react-practice
+    ports:
+      - 8080:80
     build:
-      context: .
-      dockerfile: Dockerfile
-      volumes:
-        - ./:/src
-      command: sh -c "cd app && PORT=3001 yarn start"
-      ports:
-        - "3001:3001"
-      stdin_open: true
+      context: ./
+      dockerfile: ./Dockerfile
